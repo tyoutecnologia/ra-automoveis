@@ -8,5 +8,6 @@ const colors = {
     lightGray: "#E6E7E8"
 
   };
-  
+
+  export const customGradient = "linear-gradient(90deg, rgba(254,254,254,1) 0%, rgba(230,231,232,1) 100%)"
   export const theme = extendTheme({ colors });
