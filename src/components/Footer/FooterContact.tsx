@@ -8,15 +8,15 @@ export default function FooterContact() {
   return (
     <Flex
       style={{ background: customGradient }}
-      h={{ base: "50dvh", lg: "12dvh" }}
+      h={{ base: "50dvh", md:'35dvh', xl: "12dvh" }}
       w={"100dvw"}
       position={"relative"}
-      flexDir={{ base: "column", lg: "row" }}
+      flexDir={{ base: "column", xl: "row" }}
     >
       <Flex
         position={"relative"}
-        w={{ base: "100%", lg: "45%", xl: "20%" }}
-        h={{ base: "25%", md: "40%", lg: "94%" }}
+        w={{ base: "80%", lg: "50%", "2xl": "20%" }}
+        h={{ base: "30%", xl: "94%" }}
         zIndex={20}
       >
         {" "}
@@ -31,13 +31,13 @@ export default function FooterContact() {
         zIndex={20}
         align={"center"}
         justify={"center"}
-        w={{ base: "100%", lg: "80%" }}
+        w={{ base: "100%", xl: "80%" }}
         h={"100%"}
-        gap={{ base: "20px", lg: "10px" }}
-        flexDir={{ base: "column", lg: "row" }}
+        gap={{ base: "20px", xl: "10px" }}
+        flexDir={{ base: "column", xl: "row" }}
       >
         <Input
-          w={{ base: "90%", lg: "30%" }}
+          w={{ base: "90%", xl: "30%" }}
           placeholder="Digite seu nome"
           bg={"light"}
           borderRadius={"20px"}
@@ -45,7 +45,7 @@ export default function FooterContact() {
           borderWidth={"2px"}
         />
         <Input
-          w={{ base: "90%", lg: "30%" }}
+          w={{ base: "90%", xl: "30%" }}
           placeholder="Seu e-mail"
           bg={"light"}
           borderRadius={"20px"}
@@ -53,11 +53,13 @@ export default function FooterContact() {
           borderWidth={"2px"}
         />
         <Button
+          w={{ base: "90%", xl: "25%" }}
+          py={{base: '', md:'25px', xl:'0px'}}
           fontStyle={"italic"}
           color={"light"}
           bg={"primary"}
           borderRadius={"20px"}
-          marginLeft={"20px"}
+          marginLeft={{xl:"20px"}}
         >
           ENTRAR EM CONTATO
         </Button>
