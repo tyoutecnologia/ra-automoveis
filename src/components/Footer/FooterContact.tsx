@@ -24,7 +24,9 @@ export default function FooterContact() {
           alt="RA Automoveis logo"
           src={logo}
           fill
-          style={{ backgroundSize: "contain", position: "absolute" }}
+          objectFit={"contain"}
+          objectPosition={'left'}
+          style={{ position: "absolute" }}
         />
       </Flex>
       <Flex
