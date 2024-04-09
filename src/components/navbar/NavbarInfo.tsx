@@ -18,7 +18,7 @@ export default function NavbarInfo() {
         src={bg}
         fill
         objectFit={"contain"}
-        objectPosition={'center'}
+        objectPosition={'right'}
         style={{ position: "absolute" }}
       />
       <Flex h={'80%'} w={'100%'} justify={'center'} align={'center'} zIndex={30} >

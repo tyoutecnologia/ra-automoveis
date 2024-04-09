@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <Flex h={`100%`} flexDirection={'column'} bg={`dark`} gap={'40px'}>
+    <Flex h={`100%`} w={"100%"} flexDirection={'column'} bg={`dark`} gap={'40px'}>
       <AboutRicardo/>
       <AboutRA/>
     </Flex>
