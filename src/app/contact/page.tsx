@@ -15,13 +15,12 @@ export default function page() {
       bg={`dark`}
       gap={"40px"}
     >
-      <Flex position={"relative"} h={"80dvh"} w={"100%"} zIndex={30}>
+      <Flex position={"relative"} h={{base:"30dvh", xl:"100dvh"}} w={"100%"} zIndex={30}>
         <Image
           alt=""
           src={map}
           fill
-          objectFit={"cover"}
-          style={{ position: "absolute" }}
+          style={{ position: "absolute", objectFit:'cover', objectPosition:'center' }}
         />
       </Flex>
       <Flex>

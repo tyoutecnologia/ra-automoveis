@@ -1,10 +1,57 @@
+"use client"
 import { customGradient } from "@/app/theme";
 import { Flex, Box, Input, Button } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "@/assets/footerLogo.png";
+import CustomButton from "../buttons/CustomButton";
 
 export default function FooterContact() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
+  const [isNotValid, setIsNotValid] = useState(true);
+  const [whatsMessage, setWhatsMessage] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    if (formData.name !== "" && formData.email !== "") {
+      setIsNotValid(false);
+    } else {
+      setIsNotValid(true);
+    }
+
+    setWhatsMessage(
+      `Olá, como vai? Me chamo ${formData.name}, com o e-mail: ${formData.email}. Gostaria de um atendimento!`
+    );
+  }, [formData]);
+
+  const handleClick: any = () => {
+
+    if (isNotValid) return;
+    const url = `https://api.whatsapp.com/send?phone=5518997970919&text=${encodeURIComponent(
+      whatsMessage
+    )}`;
+    window.open(url, "_blank");
+  };
+
   return (
     <Flex
       style={{ background: customGradient }}
@@ -39,32 +86,29 @@ export default function FooterContact() {
         flexDir={{ base: "column", xl: "row" }}
       >
         <Input
+          name='name'
+          value={formData.name}
           w={{ base: "90%", xl: "30%" }}
           placeholder="Digite seu nome"
           bg={"light"}
           borderRadius={"20px"}
           borderColor={"primary"}
           borderWidth={"2px"}
+          onChange={(event: any) => handleTextareaChange(event)}
         />
         <Input
+        name='email'
+        value={formData.email}
           w={{ base: "90%", xl: "30%" }}
           placeholder="Seu e-mail"
           bg={"light"}
           borderRadius={"20px"}
           borderColor={"primary"}
           borderWidth={"2px"}
+          onChange={(event: any) => handleTextareaChange(event)}
         />
-        <Button
-          w={{ base: "90%", xl: "25%" }}
-          py={{base: '', md:'25px', xl:'0px'}}
-          fontStyle={"italic"}
-          color={"light"}
-          bg={"primary"}
-          borderRadius={"20px"}
-          marginLeft={{xl:"20px"}}
-        >
-          ENTRAR EM CONTATO
-        </Button>
+
+        <CustomButton wBase={'90%'} title="ENTRAR EM CONTATO" isNotValid={isNotValid} handleClick={handleClick} />
       </Flex>
       <Box
         position={"absolute"}
