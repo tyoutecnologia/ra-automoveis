@@ -69,7 +69,7 @@ Valor de Entrada: ${formData.payment}
       textTransform={"uppercase"}
       fontSize={"0.8rem"}
       position={"relative"}
-      marginTop={'20px'}
+      marginTop={{base:'20px'}}
     >
       <Flex
         position={"absolute"}
