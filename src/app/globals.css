@@ -95,10 +95,20 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@font-face {
+  font-family: Joyride;
+  src: url(../assets/font/Joyride-Italic.otf);
+}
+@font-face {
+  font-family: Eina;
+  src: url(../assets/font/Eina01-RegularItalic.ttf);
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 
 @media (prefers-color-scheme: dark) {
   html {
