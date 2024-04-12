@@ -10,4 +10,5 @@ const colors = {
   };
 
   export const customGradient = "linear-gradient(90deg, rgba(254,254,254,1) 0%, rgba(230,231,232,1) 100%)"
+  export const navGradient = "linear-gradient(90deg, rgba(203,52,56,1) 0%, rgba(132,56,54,1) 100%);"
   export const theme = extendTheme({ colors });
