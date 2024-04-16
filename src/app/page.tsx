@@ -224,6 +224,7 @@ export default function Home() {
         py="20px"
         px="35px"
         borderTop="3px solid #cb3438"
+        borderBottom="3px solid #cb3438"
         bgColor="#848688"
         direction={{ base: "column", md: "row" }}
         justifyContent="space-around"
