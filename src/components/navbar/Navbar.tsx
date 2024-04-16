@@ -52,11 +52,13 @@ export default function Navbar() {
           position={"relative"}
           zIndex={30}
         >
+          <Link href='/'>
           <Image
             alt="RA Automóveis Logo"
             src={logo}
             style={{ position: "absolute" }}
           />
+          </Link>
         </Flex>
         <Flex
           h={"100%"}
@@ -79,9 +81,10 @@ export default function Navbar() {
             {nav.map((item, index) => (
               <ListItem
                 key={index}
-                borderBottom={pathname === item.link ? "3px solid" : ""}
-                borderColor={pathname === item.link ? "primary" : ""}
-                className="menu__link"
+                borderBottom={pathname === item.link ? "3px solid" : "3px solid"}
+                borderColor={pathname === item.link ? "primary" : "transparent"}
+                // className="menu__link"
+                _hover={{borderBottom:'3px solid', borderColor:'primary'}}
                 minH={{ xl: "25px", "2xl": "28px" }}
               >
                 <Link href={item.link}>

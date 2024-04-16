@@ -71,7 +71,7 @@ Mensagem:${formData.message === "" ? "Preciso de ajuda, você poderia me atender
       position={'relative'}
     >
       <Flex position={'absolute'} h={{base:'100%', xl:'90%'}} w={'100%'} zIndex={10} align={'flex-end'}>
-        <Flex position='relative'  h={{base:'20%', xl:'30%'}} w={'100%'} align={'flex-end'}>
+        <Flex display={{base:'none', xl:'flex'}} position='relative'  h={{base:'20%', xl:'30%'}} w={'100%'} align={'flex-end'}>
           <Image
                   alt=""
                   src={lines}

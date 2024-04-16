@@ -5,77 +5,11 @@ import AvatarViviane from "../assets/viviane.png";
 import InfoDetail from "../assets/infoDetail.png";
 import AvatarBruno from "../assets/bruno.png";
 import AvatarJonathan from "../assets/jhonatan.png";
-import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { EvaluationCard } from "@/components/EvaluationCard";
 import React, { useEffect } from "react";
 import CardVehicle from "@/components/ShowroomCard/Card";
-
-export const Veiculos = [
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202404/20240407/jeep-compass-2.0-16v-flex-longitude-automatico-wmimagem22051829828.jpg?s=fill&w=249&h=186&q=70",
-    title: "jeep compass",
-    description: "2.0 16V Flex Longitude Automático",
-    price: "99.500",
-    link: "https://www.webmotors.com.br/comprar/jeep/compass/20-16v-flex-longitude-automatico/4-portas/2017-2018/51539292?pos=a51539292g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202404/20240407/toyota-yaris-1.5-16v-flex-sedan-xls-multidrive-wmimagem22013526423.jpg?s=fill&w=249&h=186&q=70",
-    title: "toyota yaris",
-    description: "1.5 16V Flex Sedan XLS Multidrive",
-    price: "81.900",
-    link: "https://www.webmotors.com.br/comprar/toyota/yaris/15-16v-flex-sedan-xls-multidrive/4-portas/2019/51539279?pos=b51539279g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202404/20240407/fiat-mobi-1.0-evo-flex-like.-manual-wmimagem2150368945.jpg?s=fill&w=249&h=186&q=70",
-    title: "fiat mobi",
-    description: "1.0 EVO Flex Like. Manual",
-    price: "50.500",
-    link: "https://www.webmotors.com.br/comprar/fiat/mobi/10-evo-flex-like-manual/4-portas/2020-2021/51539268?pos=c51539268g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202404/20240407/volkswagen-virtus-1.0-200-tsi-comfortline-automatico-wmimagem22162461514.jpg?s=fill&w=249&h=186&q=70",
-    title: "volkswagen virtus",
-    description: "1.0 200 TSI Comfortline Automático",
-    price: "74.600",
-    link: "https://www.webmotors.com.br/comprar/volkswagen/virtus/10-200-tsi-comfortline-automatico/4-portas/2018-2019/51539323?pos=d51539323g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202404/20240407/hyundai-hb20s-1.0-12v-flex-vision-manual-wmimagem22112122150.jpg?s=fill&w=249&h=186&q=70",
-    title: "hyundai hb20s",
-    description: "1.0 12V Flex Vision Manual",
-    price: "66.900",
-    link: "https://www.webmotors.com.br/comprar/hyundai/hb20s/10-12v-flex-vision-manual/4-portas/2020-2021/51539309?pos=e51539309g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202404/20240407/volkswagen-tcross-1.0-200-tsi-total-flex-comfortline-automatico-wmimagem22263445294.jpg?s=fill&w=249&h=186&q=70",
-    title: "volkswagen t-cross",
-    description: "1.0 200 TSI Total Flex Comfortline Automático",
-    price: "120.900",
-    link: "https://www.webmotors.com.br/comprar/volkswagen/t-cross/10-200-tsi-total-flex-comfortline-automatico/4-portas/2022-2023/51539338?pos=f51539338g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2024/202401/20240115/troller-t4-3.2-xlt-4x4-20v-turbo-intercooler-diesel-2p-manual-wmimagem21020960025.jpg?s=fill&w=249&h=186&q=70",
-    title: "troller t4",
-    description: "3.2 XLT 4X4 20V Turbo Intercooler Diesel 2P Manual",
-    price: "188.900",
-    link: "https://www.webmotors.com.br/comprar/troller/t4/32-xlt-4x4-20v-turbo-intercooler-diesel-2p-manual/2-portas/2017/49753780?pos=g49753780g:&np=1",
-  },
-  {
-    image:
-      "https://image.webmotors.com.br/_fotos/anuncionovos/gigante/2024/202404/20240407/nissan-kicks-1.6-16v-flexstart-advance-xtronic-wmimagem22214987133.jpg?s=fill&w=249&h=186&q=70",
-    title: "nissan kicks",
-    description: "1.6 16V Flexstart Advance Xtronic",
-    price: "121.900",
-    link: "https://www.webmotors.com.br/comprar/nissan/kicks/16-16v-flexstart-advance-xtronic/4-portas/2023-2024/51539327?pos=h51539327g:&np=1",
-  },
-];
+import { Veiculos } from "@/utils/Veiculos";
 
 const Avaliacoes = [
   {
@@ -138,6 +72,7 @@ export default function Home() {
         src={CarBanner}
         alt="Banner de carro"
         quality={100}
+        priority={true}
       />
       <Flex
         w="100%"
@@ -163,19 +98,28 @@ export default function Home() {
             EXPERIÊNCIA!
           </Text>
         </Heading>
-        <Image
-          style={{
-            position: "absolute",
-            width: "70%",
-            height: "100px",
-            left: "30%",
-            zIndex: "1",
-            top: "90px",
-          }}
-          src={ContactLine}
-          alt="ContactLine"
-          quality={100}
-        />
+        <Flex
+          display={{ base: "none", xl: "flex" }}
+          h={"100%"}
+          w={"100%"}
+          position={"absolute"}
+          top={0}
+          left={0}
+        >
+          <Flex h={"100%"} w={"100%"} position={"relative"}>
+            <Image
+              style={{
+                position: "absolute",
+                objectFit: "cover",
+
+              }}
+              fill
+              src={ContactLine}
+              alt="ContactLine"
+              quality={100}
+            />
+          </Flex>
+        </Flex>
       </Flex>
       <Flex
         w="100%"
@@ -219,20 +163,20 @@ export default function Home() {
           style={{ width: "650px", height: "70px" }}
         />
       </Flex>
-      <Flex
-        w="100%"
-        py="20px"
-        px="35px"
-        borderTop="3px solid #cb3438"
-        borderBottom="3px solid #cb3438"
-        bgColor="#848688"
-        direction={{ base: "column", md: "row" }}
-        justifyContent="space-around"
-        gap={{ base: 5, md: 0 }}
-        alignItems="center"
-      >
+      <Grid
+    w="100%"
+    py="20px"
+    px="35px"
+    mt={5}
+    borderTop="3px solid #cb3438"
+    borderBottom="3px solid #cb3438"
+    bgColor="#848688"
+    templateColumns={{base:'repeat(1, 1fr)', md:'repeat(3,1fr)', lg:'repeat(3, 1r)', xl:'repeat(4, 1fr)', '2xl': 'repeat(5, 1fr)'}}
+    gap={{ base: 5, md: 5 }}
+
+  >
         {Veiculos.slice(0, 5).map((veiculo, index, slicedArray) => (
-          <React.Fragment key={index}>
+         <GridItem display={'flex'}   justifyContent={{base:'center',xl:"space-around" }} alignItems="center" key={index}>
             <CardVehicle
               image={veiculo.image}
               title={veiculo.title}
@@ -240,18 +184,17 @@ export default function Home() {
               price={veiculo.price}
               link={veiculo.link}
             />
-            {index !== slicedArray.length - 1 && (
+            {index !== slicedArray.length - 1  && (
               <Divider
-                display={{ base: "none", md: "flex" }}
+                display={{ base: "none", xl: "flex" }}
                 orientation="vertical"
-                mx={4}
                 h="320px"
                 borderColor="light"
               />
             )}
-          </React.Fragment>
+          </GridItem>
         ))}
-      </Flex>
+      </Grid>
     </Flex>
   );
 }

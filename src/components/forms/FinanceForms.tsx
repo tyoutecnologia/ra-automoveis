@@ -83,6 +83,7 @@ Valor de Entrada: ${formData.payment}
           h={{ base: "20%", xl: "30%" }}
           w={"100%"}
           align={"flex-end"}
+          display={{base:'none', xl:'flex'}}
         >
           <Image
             alt=""
