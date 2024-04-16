@@ -81,7 +81,7 @@ export default function Navbar() {
                 key={index}
                 borderBottom={pathname === item.link ? "3px solid" : ""}
                 borderColor={pathname === item.link ? "primary" : ""}
-                _hover={{ borderBottom: "3px solid", borderColor: "primary" }}
+                className="menu__link"
                 minH={{ xl: "25px", "2xl": "28px" }}
               >
                 <Link href={item.link}>
@@ -90,7 +90,12 @@ export default function Navbar() {
               </ListItem>
             ))}
           </List>
-          <Button bg={"primary"} onClick={onOpen} mr="6dvw"   display={{ base: "", xl: "none" }}>
+          <Button
+            bg={"primary"}
+            onClick={onOpen}
+            mr="6dvw"
+            display={{ base: "", xl: "none" }}
+          >
             <CustomIcon color="white" icon="material-symbols:menu" />
           </Button>
           <Drawer placement={"left"} onClose={onClose} isOpen={isOpen}>
@@ -99,20 +104,18 @@ export default function Navbar() {
               <DrawerBody>
                 <List
                   display={{ base: "flex", xl: "none" }}
-                  flexDir='column'
+                  flexDir="column"
                   w={"100%"}
-                  h='100%'
-                  gap='2rem'
-                  mt='1rem'
-                  color={"light"}       
-                  fontSize={'1.6rem'}
+                  h="100%"
+                  gap="2rem"
+                  mt="1rem"
+                  color={"light"}
+                  fontSize={"1.6rem"}
                   fontStyle={"italic"}
                   fontWeight={"bold"}
                 >
                   {nav.map((item, index) => (
-                    <ListItem
-                      key={index}
-                    >
+                    <ListItem key={index}>
                       <Link href={item.link}>
                         <Text>{item.name}</Text>
                       </Link>
