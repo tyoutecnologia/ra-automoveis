@@ -1,23 +1,34 @@
-import { Flex, Text, Heading, Highlight } from "@chakra-ui/react";
+"use client";
+import {
+  Flex,
+  Text,
+  Heading,
+  Highlight,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import ricardo from "@/assets/aboutRicardo.png";
+import Ricardo from "@/assets/aboutRicardo.png";
+import IconRicardo from "@/assets/RicardoIcon.png";
 
 export default function AboutRicardo() {
+  const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Flex h={{ base: "100%", xl: "90dvh" }} w={"100dvw"} position={"relative"}>
-      <Flex position={"absolute"} h={"100%"} w={"100%"}>
-        <Flex position={"relative"} h={"100%"} w={"100%"}>
-          <Image
-            alt=""
-            src={ricardo}
-            fill
-            objectFit={"cover"}
-            objectPosition={"right"}
-            style={{ position: "absolute" }}
-          />
+      {!isMobile && (
+        <Flex position={"absolute"} h={"100%"} w={"100%"}>
+          <Flex position={"relative"} h={"100%"} w={"100%"}>
+            <Image
+              alt=""
+              src={Ricardo}
+              fill
+              objectFit={"cover"}
+              objectPosition={"right"}
+              style={{ position: "absolute" }}
+            />
+          </Flex>
         </Flex>
-      </Flex>
+      )}
       <Flex
         zIndex={40}
         h={"100%"}
@@ -34,19 +45,49 @@ export default function AboutRicardo() {
           align={"center"}
           style={{ letterSpacing: "5px" }}
         >
-          <Heading color={"primary"} fontSize={"2.2rem"}>
+          <Heading
+            color={{ base: "", xl: "primary" }}
+            fontSize={{ base: "1.7rem", xl: "2.2rem" }}
+          >
             SOBRE
           </Heading>
           <Flex w={"100%"}>
-            <Heading fontSize={"3rem"}>RICARDO</Heading>
+            <Heading
+              fontSize={{ base: "1.7rem", xl: "3rem" }}
+              color={{ base: "primary", xl: "white" }}
+              mr="10px"
+            >
+              RICARDO
+            </Heading>
+            {isMobile && (
+              <Heading fontSize={"1.7rem"} color={"primary"}>
+                {" "}
+                AMBROSIO
+              </Heading>
+            )}
           </Flex>
-          <Flex w={"100%"} justify={"flex-end"} ml={"1dvw"}>
-            <Heading fontSize={"3rem"}>AMBROSIO</Heading>
-          </Flex>
+          {!isMobile && (
+            <Flex w={"100%"} justify={"flex-end"} ml={"1dvw"}>
+              <Heading fontSize={"3rem"}>AMBROSIO</Heading>
+            </Flex>
+          )}
+          {isMobile && (
+            <Image
+              alt=""
+              src={IconRicardo}
+              width={110}
+              style={{
+                borderRadius: "150%",
+                border: "2px solid #CB3438",
+                marginTop: "30px",
+                marginBottom: "30px",
+              }}
+            />
+          )}
         </Flex>
         <Flex
           flexDirection={"column"}
-          w={{ base: "100%", md:'60%', xl: "45%" }}
+          w={{ base: "100%", md: "60%", xl: "45%" }}
           color={"light"}
           textAlign={"right"}
           fontSize={{ xl: "1rem", "2xl": "1.4rem" }}
